@@ -15,9 +15,9 @@ def text_reply(msg):
     print msg
     # print '=================================='
     itchat.add_friend(userName=msg['FromUserName'], status=2)
-    # itchat.add_friend(userName=msg['FromUserName'], status=3)
+    itchat.add_friend(userName=msg['FromUserName'], status=3)
     print '== msg_register(Note) ends ======='
-    return u"Hello !"
+    return u'请回复如下关键字中的一个，大小写均可：\nstreaming\ncoolplayspark'
 
 
 @itchat.msg_register(itchat.content.TEXT)
@@ -54,9 +54,9 @@ def text_reply(msg):
             roomName = itchat.search_chatrooms(name=u'Spark Streaming 交流群')[0]['UserName']
             itchat.add_member_into_chatroom(roomName, userNamesToInvide, useInvitation=True)
             # ↑↑↑↑↑ 以上是邀请到群里
-        response = u'Let\'s streaming!'
+        response = u'指令已收到；机器人将在 2 小时内邀请您入群。\nLet\'s streaming!'
     else:
-        response = u'请回复如下关键字(大小写均可)：\nstreaming'
+        response = u'请回复如下关键字中的一个、大小写均可：\nstreaming\ncoolplayspark'
     return response
 
 
