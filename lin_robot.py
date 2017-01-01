@@ -40,7 +40,11 @@ def text_reply(msg):
     #print 'sssssssss3'
     #print itchat.search_friends(userName=msg['FromUserName'])
     #print 'sssssssss4'
-    if msg['Text'] == 'streaming':
+    if msg['Text'].strip().lower() == u'streaming' \
+            or msg['Text'].strip().lower() == u'coolplayspark' \
+            or msg['Text'].strip().lower() == u'coolplay spark' \
+            or msg['Text'].strip().lower() == u'cool play spark' \
+            or msg['Text'].strip().lower() == u'源码':
         itchat.add_friend(userName=msg['FromUserName'], status=2)
         itchat.add_friend(userName=msg['FromUserName'], status=3)
         itchat.get_friends(update=True)
@@ -56,7 +60,7 @@ def text_reply(msg):
             # ↑↑↑↑↑ 以上是邀请到群里
         response = u'Let\'s streaming!'
     else:
-        response = u'请回复如下关键字：\nstreaming'
+        response = u'请回复如下关键字(大小写均可)：\nstreaming'
     return response
 
 
